@@ -1,26 +1,30 @@
-import React from 'react';
-import {getStocks} from '../Services/mockNodeFuncs.js'; 
+import React, {useEffect, useState} from 'react';
+import {getStocks, companies} from '../Services/mockNodeFuncs.js'; 
 import {CompanyTile} from './CompanyTile';
+import 'bootstrap/dist/css/bootstrap.css';
 
-export class MainScreen extends React.Component {
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import FlatList from 'flatlist-react';
 
-    constructor(props) {
-        super(props);
-        this.state = {companies: []};
-    }
+export function MainScreen(props) {
+    const [companyList, setCompanyList] = useState(companies);
 
-    componentDidMount() {
-        const curCompanies = getStocks();
-        this.setState({companies: curCompanies});
-    }
-    render() {
-        let tiles = this.state.companies.map(company => (
-            <CompanyTile companyObj={company} />
-        ));
-        return (
-            <ul>
-                {tiles}
-            </ul>
-        )
-    }
+    useEffect(() => {
+        let newStocks = getStocks(companyList);
+        const interval = setInterval(() => setCompanyList(newStocks), 1000);
+        return () => {
+            clearInterval(interval);
+        };
+    });         
+    
+    return (        
+        <FlatList 
+            displayGrid 
+            gridGap="100rem" 
+            list={companyList} 
+            renderItem={company => <CompanyTile key={Date.now().toString() + Math.random() * 0.999} companyObj={company} /> }
+        />
+        
+    )
 }

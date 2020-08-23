@@ -1,5 +1,5 @@
 
-const companies = [
+export const companies = [
     {
         name: "Apple",
         price: 458.83,
@@ -19,6 +19,13 @@ const companies = [
 ]
 
 
-export function getStocks() {
-    return companies;
+export function getStocks(input) {
+    let newStocks = []
+    for (let i = 0; i < input.length; i++) {
+        let multiplier = Math.random() * 0.1 - 0.05;
+        input[i].price = Number(parseFloat(input[i].price * multiplier + input[i].price).toFixed(2));
+        newStocks.push(input[i]);
+    }
+    return newStocks;
+    
 }

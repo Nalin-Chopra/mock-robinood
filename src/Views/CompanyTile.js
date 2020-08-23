@@ -1,22 +1,23 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.css';
 
-export class CompanyTile extends React.Component {
-    render() {
-        return (
-            <Card style={{ width: '18rem' }}>
-                <Card.Img src={this.props.companyObj.logo} />
-                <Card.Body>
-                <Card.Title>{this.props.companyObj.name} {this.props.companyObj.price}</Card.Title>
+export function CompanyTile(props) {
+    return (
+        <Card style={{height: '100rem', width: '50rem', backgroundColor: "#00FF7F"}}>
+
+            <Card.Img src={props.companyObj.logo} />
+            <Card.Body>
+            <Card.Title></Card.Title>
                 <Card.Text>
-                    Some quick example text to build on the card title and make up the bulk of
-                    the card's content.
+                {props.companyObj.name} {props.companyObj.price}
                 </Card.Text>
-                <Button variant="primary">See More</Button>
-                </Card.Body>
-            </Card>
-        );
-    }
+            <Button variant="primary">See More</Button>
+            </Card.Body>
+            
+        </Card>
+        
+    );
 }
 
