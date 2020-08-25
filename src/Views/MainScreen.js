@@ -18,13 +18,15 @@ export function MainScreen(props) {
         };
     });         
     
-    return (        
+    return (   
         <FlatList 
+            style={{marginTop: "auto"}}
             displayGrid 
-            gridGap="100rem" 
+            gridGap="50rem" 
             list={companyList} 
             renderItem={company => <CompanyTile key={Date.now().toString() + Math.random() * 0.999} companyObj={company} /> }
         />
+        
         
     )
 }

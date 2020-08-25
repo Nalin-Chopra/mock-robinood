@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 export function CompanyTile(props) {
     return (
-        <Card style={{height: '100rem', width: '50rem', backgroundColor: "#00FF7F"}}>
+        <Card style={{height: '76rem', width: '38rem', backgroundColor: "#00FF7F"}}>
 
             <Card.Img src={props.companyObj.logo} />
             <Card.Body>
