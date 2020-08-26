@@ -1,40 +1,14 @@
-import React, {useEffect, useState} from 'react';
-import {CompanyTile} from './CompanyTile';
-import 'bootstrap/dist/css/bootstrap.css';
-
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
-import FlatList from 'flatlist-react';
-const API_URL = 'https://mock-robinhood-server-e3jyc8q9t.vercel.app/stocks';
+import React from 'react';
+import {TickerList} from './TickerList';
 
 export function MainScreen(props) {
-    const [companyList, setCompanyList] = useState([]);
+    return (
+        <div> 
+            <h1 style={{color: "#FFFF", fontSize: "15rem", marginBottom: "25rem", position: "relative"}}>MOCK ROBINHOOD</h1>
 
-    useEffect(() => {
-        let interval;
-        async function getStocks() {
-            let newStocks = []
-            fetch(API_URL)
-            .then(response => response.json())
-            .then(stocks => {
-                newStocks = stocks;
-            });
-            interval = setInterval(() => setCompanyList(newStocks), 1000);
-        };
-        getStocks();
-        return () => {
-            clearInterval(interval);
-        }
-        
-    });
-    
-    return (   
-        <FlatList 
-            style={{marginTop: "auto"}}
-            displayGrid 
-            gridGap="50rem" 
-            list={companyList} 
-            renderItem={company => <CompanyTile key={Date.now().toString() + Math.random() * 0.999} companyObj={company} /> }
-        />   
-    )
+            <h2 style={{color: "#FFFF", fontSize: "5rem", marginBottom: "10rem", position: "relative"}}> SIMDAQ EXCHANGE</h2>
+            <TickerList />
+        </div>
+    );
 }
+

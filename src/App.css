@@ -2,10 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -14,25 +10,50 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  font-family: 'Titillium Web';
+  background-color: #ffffff;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #000000;
+  position: relative;
+  overflow: hidden;
 }
+.App-header::before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.8;
+  background-image: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwcICAcIBwcHBwcHBwoHBwcHBw8ICQcKIBEiIhURHxMYHSggGCYxGx8fITEhJSkrLi4uFx8zODMsNygtLisBCgoKDQ0NDw8NDisZFRktKy0rNysrLSsrLTc3LTcrKy0rKystKysrKysrKysrKysrLSsrKysrKysrKystLSsrK//AABEIALcBEwMBIgACEQEDEQH/xAAaAAEBAQEBAQEAAAAAAAAAAAAAAQIDBQQG/8QAFRABAQAAAAAAAAAAAAAAAAAAAAH/xAAbAQADAQEBAQEAAAAAAAAAAAAAAQIDBQQGB//EABgRAQEBAQEAAAAAAAAAAAAAAAABAhEh/9oADAMBAAIRAxEAPwD61RXrfl4AkhUCCgEBUCJQEhRFICoESgEABcoURWkoAFykANZQKguUKA0lAA0lAAoAAD55VZjUcyNaoiggAiURSAAQFRUkKgQUAgoikQAUAA0lCgNJQANJSAGkoURWkoAGkAAuAAMPkjcrnK1HJzW1japKNEqARABBQEgAIlEUgKikABIUAiADlAqDSUKA0lAA1lIAXKFAaSgAaSgAUHwxuVzlalcbNeix0jTEalbZqKqopkAEQqBBQCAqBEoCQoikBUUiACAAuUKIrSUADSUgBpKBUGkoUBpKABXQ86VuVzlalcTNequkrUYlalbZqLHSDMaaz1CgAABEoikAAgoipIVAgoBBRFIgAQCoLlCgNJQANJSAGkoURWkoAF9Dy43HKNyuFmvZY6StRzjcbZqLHSVqOcbjfNRY0qQWlQCIVBIUAgAESgEBUUgLEEkoBAAVKBUVpKABpKQA0lAA0lCgK6HkRqVzlblcDNe6x0lalc5W43zUWOkalc5W43zUVuNMStRtKitCKCACIVFIABAVBJKAQUAgKikQAQAFyhRFaSgAaSkANJQAL6HjRqVzlblfPZroWOkrUrnK3K3zUWOkrUc5W5W+aixuNxzlajbNRY6RWYrVCgEAAiURSAAklEUgKgQUAgoQSQAcoFQaShQGkoAGkpACuh4cajnK1K+czXSsdJW5XOVqVvmosdZWpXOVqVvmosdZWo5ytRvmosdJW45ytRtmosaVIq0gCSFQIKAQACJQgkKIpAVAiUAgAKlCiK0lAA0lIAX0PAlalc5WpXzOdOpY6StyucrUejNRY6Stxzlalb5qLHSVuVzlalb5qLHSVuVzlalbZqLHSVWI3G0qKoiggAiFRSAAQFRUkAEFAILBFIgAgANJQoDSUACuk/OStxzlalfLY061jpK3K5ytR6c1FjpK3K5ytSvRmosdJW5XOVqVtmosdJW45ytSt81FjpK1HOVuVtms7G1ZlVqlQCIAIKAkABEoikBUCCgJChAiADlAqDSUKAvofmY3KD5PDr1qNyg9WazrUrcQejKK3G5UG+UVuVqVRvlFajUoNsorcagNsoooGQARCoEFAICoESgJCgEBQIgAgALgFBYf/9k=);
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover; 
+}
+
+
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main-card:hover {
+  box-shadow: 5px 10px 20px 1px #00FF7F	!important;
+  transform: scale(1.4);
+  z-index:1
+}
+
+.card-img-top:hover {
+  transform: scale(1);
 }
