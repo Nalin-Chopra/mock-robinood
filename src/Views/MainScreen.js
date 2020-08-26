@@ -6,17 +6,29 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import FlatList from 'flatlist-react';
+const API_URL = 'http://localhost:5000/stocks';
+
 
 export function MainScreen(props) {
     const [companyList, setCompanyList] = useState(companies);
 
     useEffect(() => {
-        let newStocks = getStocks(companyList);
-        const interval = setInterval(() => setCompanyList(newStocks), 1000);
+        let interval;
+        async function getStocks() {
+            let newStocks = []
+            fetch(API_URL)
+            .then(response => response.json())
+            .then(stocks => {
+                newStocks = stocks;
+            });
+            interval = setInterval(() => setCompanyList(newStocks), 1000);
+        };
+        getStocks();
         return () => {
             clearInterval(interval);
-        };
-    });         
+        }
+        
+    });
     
     return (   
         <FlatList 

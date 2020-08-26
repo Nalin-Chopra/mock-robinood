@@ -1,3 +1,4 @@
+const fetch = require('node-fetch');
 
 export const companies = [
     {
@@ -28,14 +29,18 @@ export const companies = [
 
 ]
 
+const API_URL = 'http://localhost:5000/stocks';
 
-export function getStocks(input) {
+
+
+
+export async function getStocks(input) {
     let newStocks = []
-    for (let i = 0; i < input.length; i++) {
-        let multiplier = Math.random() * 0.1 - 0.05;
-        input[i].price = Number(parseFloat(input[i].price * multiplier + input[i].price).toFixed(2));
-        newStocks.push(input[i]);
-    }
+    fetch(API_URL)
+    .then(response => response.json())
+    .then(stocks => {
+        newStocks = stocks;
+    });
     return newStocks;
     
 }
