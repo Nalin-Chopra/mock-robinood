@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import {getStocks, companies} from '../Services/mockNodeFuncs.js'; 
 import {CompanyTile} from './CompanyTile';
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -8,9 +7,8 @@ import Button from 'react-bootstrap/Button';
 import FlatList from 'flatlist-react';
 const API_URL = 'http://localhost:5000/stocks';
 
-
 export function MainScreen(props) {
-    const [companyList, setCompanyList] = useState(companies);
+    const [companyList, setCompanyList] = useState([]);
 
     useEffect(() => {
         let interval;
@@ -37,8 +35,6 @@ export function MainScreen(props) {
             gridGap="50rem" 
             list={companyList} 
             renderItem={company => <CompanyTile key={Date.now().toString() + Math.random() * 0.999} companyObj={company} /> }
-        />
-        
-        
+        />   
     )
 }
