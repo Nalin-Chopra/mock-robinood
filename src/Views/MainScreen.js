@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import FlatList from 'flatlist-react';
-const API_URL = 'http://localhost:5000/stocks';
+const API_URL = 'https://mock-robinhood-server-e3jyc8q9t.vercel.app/stocks';
 
 export function MainScreen(props) {
     const [companyList, setCompanyList] = useState([]);
